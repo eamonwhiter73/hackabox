@@ -1,0 +1,20 @@
+<div ng-include="'partials/navbar.html'"></div>
+
+<div class="jumbotronmain">
+	<form class="form" name="form2" ng-submit="postit()" novalidate>
+    	
+      <div class="form-group">
+        <label>Title</label>
+
+        <input type="text" name="posttitle" class="form-control" ng-model="post.posttitle" required/>
+      </div>
+
+      <div class="form-group">
+        <label>Content</label>
+
+        <textarea class="form-control" name="content" ng-model="post.content" required></textarea> 
+      </div>
+
+      <button type="submit">Submit post</button>
+    </form>
+</div>

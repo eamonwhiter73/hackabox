@@ -1,0 +1,327 @@
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  /*border-bottom: 1px solid #e5e5e5;*/
+}
+/* Make the masthead heading the same height as the navigation */
+.header h2 {
+  color: #C43D3D;
+  float: left;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+#relativeplease {
+  position: relative;
+  top: 20px;
+}
+
+#gimpadding {
+  position: relative;
+  top: 15px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.header h3 {
+  float: left;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+.forumbuttons {
+  margin-top: 120px;
+  width: 150px;
+  height: 40px;
+}
+
+#clown:hover {
+  /*text-align: center;*/
+  background-color: #C43D3D;
+  right: 40px;
+  position: relative;
+  list-style: none;
+  width: 160px;
+  height: 42px;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
+#clown {
+  right: 40px;
+  position: relative;
+  list-style: none;
+  width: 160px;
+  height: 42px;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
+#clown:hover > a {
+  position: relative;
+}
+
+#clown > a {
+  position: relative;
+}
+
+#colorblue {
+  color: #F2F2F2;
+  text-align: left;
+  margin-left: 20px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #C2C2C2;
+}
+
+#colorblueview {
+  color: #F2F2F2;
+  text-align: left;
+  margin-left: 20px;
+  border-bottom: 2px solid #C2C2C2;
+}
+
+#colorbluelarger {
+  color: #F2F2F2;
+  text-align: left;
+}
+
+/*td #colorblue {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #C2C2C2;
+  width: 55px;
+}*/
+
+td #colorbluelarger {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #C2C2C2;
+  width: 90px;
+}
+
+#bottomborder {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+}
+
+#inline {
+  text-align: 
+}
+
+#colorback {
+  color: #C2C2C2;
+  text-align: left;
+  /*padding-left: 5px;*/
+}
+
+#colorbackcontentcomment {
+  color: #000000;
+  text-align: left;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+#colorbackcontent {
+  color: #C2C2C2;
+  text-align: left;
+  padding-top: 10px;
+  margin-left: 20px;
+}
+
+td {
+  text-align:left;
+}
+
+.nav-pills-create {
+  position: relative;
+  list-style: none;
+  background-color: #E34D4D;
+  width: 120px;
+  height: 42px;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-pills-create > li > a {
+  position: relative;
+  top: 11px;
+  text-decoration: none;
+  color: #FFFFFF;
+  padding: 40px;
+}
+
+.nav-pills-create > li:hover,
+.nav-pills-create > li:focus {
+  position: relative;
+  text-decoration: none;
+  background-color: #C43D3D;
+  width: 120px;
+  border-radius: 6px;
+}
+
+#postinfo {
+  padding-bottom: 8px;
+  color: inherit;
+  background-color: #BD8484;
+  border-radius: 2px;
+  margin: 20px;
+  text-align: left;
+  padding-top: 10px;
+  width: 47%;
+  border: 1px solid #E8E8E8;
+}
+
+#postinfocomment {
+  padding-bottom: 3px;
+  color: inherit;
+  background-color: #BD8484;
+  border-radius: 2px;
+  margin-top: 10px;
+  text-align: left;
+  width: 50%;
+  border: 1px solid #E8E8E8;
+}
+
+#editcommentplace {
+  margin-bottom: 10px;
+}
+
+#commenttitle {
+  text-align: left;
+  height: 10px;
+  margin-left: 10px;
+}
+
+#listit {
+  text-align: left;
+  margin-left: 10px;
+  height: 20px;
+}
+
+.jumbotroninner {
+  padding-bottom: 8px;
+  color: inherit;
+  background-color: #C75252;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.jumbotroninnerview {
+  padding-bottom: 8px;
+  color: inherit;
+  background-color: #C75252;
+  border-radius: 6px;
+}
+
+.jumbotroncomment {
+  padding-bottom: 8px;
+  color: inherit;
+  background-color: #DE8181;
+  border-radius: 3px;
+  margin: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 1px;
+  text-align: left;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.commentonit {
+  margin: 20px;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 900px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.jumbotronmain {
+  position: relative;
+  margin-top: 100px;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+  border-radius: 5px;
+}
+
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+#goleftnow {
+  float: left;
+  margin-left: 20px;
+}
+
+#goleftnowcomment {
+  float: left;
+  margin-left: 10px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}

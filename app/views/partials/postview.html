@@ -1,0 +1,72 @@
+<div ng-include="'partials/navbar.html'"></div>
+
+<div class="jumbotronmain">
+  <div ng-init="loadpost()">
+    <div class="jumbotroninnerview">
+      <table>
+        <tr>
+          <td><h3 id="colorblueview">{{post.posttitle}}</h3></td>
+        </tr>
+      <table>
+      <table>
+        <tr>
+          <td><p id="colorbackcontent">{{post.content}}</p></td>
+        </tr>
+      </table>
+      <br>
+      <div id="postinfo">
+        <table style="margin-left:20px">
+          <tr>
+            <div id="listit"><p>Posted by: {{post.username}}</p></civ>
+          </tr>
+          <tr>
+            <div id="listit"><p>Posted on: {{post.date}}</p></div>
+          </tr>
+        </table>
+      </div>
+      </table>
+      <br>
+      <div id="goleftnow">
+        <button ng-click="deleteit(post)">Delete post</button>
+        <button ng-click="editit(post)">Edit post</button>
+        <button id="submitcomment" ng-click="toggle()" change>Comment</button>
+      </div>
+      <br>
+      <br>
+      <div class="commentonit" toggle>
+        <form class="form" name="form4" ng-submit="commentonit()" novalidate>
+
+          <div>
+            <label>Comment</label>
+
+            <textarea class="form-control" name="comments" ng-model="comment.content" required></textarea> 
+          </div>
+          <br>
+          <button type="submit" ng-click="toggle()">Submit comment</button>
+        </form>
+      </div>
+      <div>
+        <table>
+          <tr>
+            <td><h3 id="colorblue">Comments</h3></td>
+          </tr>
+        <table>
+        <div class="jumbotroncomment" ng-repeat="comment in comments track by $index">
+            <div id="postinfocomment">
+              <h5 id="commenttitle">Posted by: {{comment.username}}</h4>
+              <h5 id="commenttitle">Posted on: {{comment.date}}</h5>
+            </div>
+            <p id="colorbackcontentcomment">{{comment.content}}</p>
+            <textarea id='editcommentplace' class="form-control" name="comments" ng-model="comment.content" ng-show="checkedit" required>
+            </textarea> 
+            <div done></div>
+            <div save>
+              <button ng-click="deletecomment(comment)">Delete comment</button>
+              <button ng-click="commentedit(comment)">Edit comment</button>
+              <button ng-show="checkedit" ng-click="commentsave(comment)">Save comment</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
