@@ -14,17 +14,18 @@
         </tr>
       </table>
       <br>
-      <div id="postinfo">
-        <table style="margin-left:20px">
-          <tr>
-            <div id="listit"><p>Posted by: {{post.username}}</p></civ>
-          </tr>
-          <tr>
-            <div id="listit"><p>Posted on: {{post.date}}</p></div>
-          </tr>
-        </table>
+      <div id="wrapperdiv">
+        <div id="postinfo">
+          <table style="margin-left:20px">
+            <tr>
+              <div id="listit"><p>Posted by: {{post.username}}</p></civ>
+            </tr>
+            <tr>
+              <div id="listit"><p>Posted on: {{post.date}}</p></div>
+            </tr>
+          </table>
+        </div>
       </div>
-      </table>
       <br>
       <div id="goleftnow">
         <button ng-click="deleteit(post)">Delete post</button>

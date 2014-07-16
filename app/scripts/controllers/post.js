@@ -117,7 +117,7 @@ angular.module('hackaboxApp')
       if($scope.user.email === data.username) {
         $scope.checkedit = true;
         console.log(data.content + " edit data");
-        $scope.$broadcast('event:edit');
+        //$scope.$broadcast('event:edit');
         //$scope.$broadcast('event:save');
       }
       else {
