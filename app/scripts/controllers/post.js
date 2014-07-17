@@ -38,6 +38,21 @@ angular.module('hackaboxApp')
 
     $scope.loadpost = function() {
       $(".commentonit").hide();
+      $(".jumbotroncomment").hide();
+      $http({
+          url : '/api/posts/'+$routeParams.id,
+          method : 'GET',
+          async : true,
+          cache : false,
+          headers : { 'Accept' : 'application/json' , 'Pragma':'no-cache'}
+      }).success(function(data) {
+         //console.log("this worked for some reason");
+         $scope.post = data;
+         $scope.comments = $scope.post.comments;
+      });
+    };
+
+    $scope.loadpost2 = function() {
       $http({
           url : '/api/posts/'+$routeParams.id,
           method : 'GET',
@@ -81,7 +96,8 @@ angular.module('hackaboxApp')
     };
 
     $scope.commentonit = function() {
-      var comment = {username: $scope.user.email, date: null, content: $scope.comment.content, id:  Math.floor((Math.random() * 999999999) + 1)};
+      $(".jumbotroncomment").show();
+      var comment = {checkedit: false, username: $scope.user.email, date: null, content: $scope.comment.content, id:  Math.floor((Math.random() * 999999999) + 1)};
       comment.date = new Date().toString();
       /*$scope.comment.date = new Date().toString();*/
       $scope.comments.push(comment);
@@ -101,7 +117,7 @@ angular.module('hackaboxApp')
     };
 
     $scope.deletecomment = function(data) {
-      if($scope.user.email === data.username) {  
+      if($scope.user.email === data.username) { 
         console.log($scope.comments.indexOf(data.id));
         var x = $scope.comments.indexOf(data.id);
         $scope.comments.splice(x, 1);
@@ -114,11 +130,24 @@ angular.module('hackaboxApp')
     };
 
     $scope.commentedit = function(data) {
+      //$scope.loadpost2();
       if($scope.user.email === data.username) {
-        $scope.checkedit = true;
-        console.log(data.content + " edit data");
-        //$scope.$broadcast('event:edit');
-        //$scope.$broadcast('event:save');
+        console.log(data.id + " this is data.id from form");
+        for(var i = 0; i<$scope.comments.length; i++) {
+          console.log($scope.comments[i].id);
+        }
+        for(var i = 0; i<$scope.comments.length; i++) {
+          if(data.id === $scope.comments[i].id) {
+            var hold = $scope.comments[i];
+            hold.checkedit = true;
+            $scope.comments.splice(i, 1, hold);
+            $scope.post.comments = $scope.comments;
+            Post.update({ id:$scope.post._id }, $scope.post, function() {/*for(var i = 0; i<$scope.post.comments.length; i++) {console.log($scope.post.comments[i])*/});
+            //$location.path('/postview/'+$scope.post._id);
+          }
+        }
+        //$rootScope.$broadcast('event:edit', data);
+        //$rootScope.$broadcast('event:done', data);
       }
       else {
         $window.alert("Nice try, but you didn't write this comment.")
@@ -126,18 +155,26 @@ angular.module('hackaboxApp')
     };
 
     $scope.commentsave = function(data) { 
-      $scope.checkedit = false;
+      //$scope.checkedit = false;
       if($scope.user.email === data.username) {  
         console.log(data.content);
-        $scope.comment.content = data.content;
+        /*$scope.comment.content = data.content;
         $scope.comment.id = data.id;
         $scope.comment.username = data.username;
         $scope.comment.date = data.date;
+        $scope.comment.checkedit = false;*/
+        var hold = data;
+        hold.checkedit = false;
 
-        $scope.post.comments[$scope.post.comments.indexOf($scope.comment.id)] = $scope.comment;
-        $scope.comments = $scope.post.comments;
-        Post.update({ id:$scope.post._id }, $scope.post, function() {console.log("in update function")});
-        $rootScope.$broadcast('event:done', $scope.comment.content);
+        for(var i = 0; i<$scope.comments.length; i++) {
+          if(data.id === $scope.comments[i].id) {
+            $scope.comments[i] = hold;
+            $scope.comments.splice(i, 1, hold);
+            $scope.post.comments = $scope.comments;
+            Post.update({ id:$scope.post._id }, $scope.post, function() {/*for(var i = 0; i<$scope.post.comments.length; i++) {console.log($scope.post.comments[i])*/});
+            //$location.path('/postview/'+$scope.post._id);
+          }
+        }
       }
       else {
         $window.alert("Nice try, but you didn't write this comment.");

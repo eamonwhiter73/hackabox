@@ -24,19 +24,17 @@ angular.module('hackaboxApp')
         });
     };
   })
-  /*.directive('edit', function() {
+  .directive('edit', function() {
     return function(scope, elem, attrs) {
         scope.$on('event:edit', function() {
-           var store = elem.html();
-           elem.html("<textarea id='editcommentplace' class='form-control' name='comments' ng-model='comment.content' required>" + store + "</textarea>" );
+          elem.html("");
         });
     };
-  })*/
-  .directive('done', function() {
+  })
+  /*.directive('done', function() {
     return function(scope, elem, attrs) {
       scope.$on('event:done', function(event, x) {
-        //$scope.post.comments = x;
-        console.log(x + " this is x");
+        elem.append("<button ng-click='commentsave(comment)''>Save comment</button>")
       });
     }
-  })
+  })*/
