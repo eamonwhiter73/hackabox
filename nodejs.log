@@ -1,0 +1,26 @@
+Express server listening on undefined:9000, in development mode
+db connection open
+[90mGET / [32m200 [90m12ms - 3.7kb[0m
+[90mGET /partials/main [32m200 [90m3ms - 257b[0m
+[90mGET /partials/navbar [32m200 [90m5ms - 901b[0m
+[90mGET /partials/forum [32m200 [90m8ms - 1.01kb[0m
+[90mGET /api/users/me [32m200 [90m15ms - 4b[0m
+[90mGET /api/posts [32m200 [90m25ms - 589b[0m
+[90mGET /partials/navbar.html [32m200 [90m7ms - 901b[0m
+[90mGET /partials/createpost [32m200 [90m4ms - 570b[0m
+[90mGET /partials/login [32m200 [90m4ms - 1.11kb[0m
+[90mPOST /api/session [33m401 [90m7ms - 48b[0m
+[90mPOST /api/session [32m200 [90m57ms - 61b[0m
+[90mGET /api/users/me [32m200 [90m9ms - 138b[0m
+[90mGET /api/posts [32m200 [90m11ms - 589b[0m
+[90mGET /api/users/me [32m200 [90m4ms - 138b[0m
+blah this is req.body
+null
+in save function
+[90mPOST /api/posts [32m200 [90m12ms - 2b[0m
+[90mGET /api/users/me [32m200 [90m7ms - 138b[0m
+[90mGET /api/posts [32m200 [90m10ms - 762b[0m
+[90mGET /partials/postview [32m200 [90m4ms - 2.61kb[0m
+what did u find?null
+[90mGET /api/posts/8994038656819 [32m200 [90m11ms - 4b[0m
+[90mGET /api/users/me [32m200 [90m6ms - 138b[0m

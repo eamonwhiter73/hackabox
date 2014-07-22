@@ -2,7 +2,6 @@
 
 angular.module('hackaboxApp')
   .controller('SettingsCtrl', function ($scope, User, Auth) {
-    console.log('in settings ctrl');
     $scope.errors = {};
 
     $scope.changePassword = function(form) {

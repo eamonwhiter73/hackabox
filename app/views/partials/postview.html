@@ -1,71 +1,76 @@
 <div ng-include="'partials/navbar.html'"></div>
 
-<div class="jumbotronmain">
-  <div>
-    <div class="jumbotroninnerview">
-      <table>
-        <tr>
-          <td><h3 id="colorblueview">{{post.posttitle}}</h3></td>
-        </tr>
-      <table>
-      <table>
-        <tr>
-          <td><p id="colorbackcontent">{{post.content}}</p></td>
-        </tr>
-      </table>
-      <br>
-      <div id="wrapperdiv">
-        <div id="postinfo">
-          <table style="margin-left:20px">
-            <tr>
-              <div id="listit"><p>Posted by: {{post.username}}</p></civ>
-            </tr>
-            <tr>
-              <div id="listit"><p>Posted on: {{post.date}}</p></div>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <br>
-      <div id="goleftnow">
-        <button ng-click="deleteit(post)">Delete post</button>
-        <button ng-click="editit(post)">Edit post</button>
-        <button id="submitcomment" ng-click="toggle()" change>Comment</button>
-      </div>
-      <br>
-      <br>
-      <div ng-hide="hideit" class="commentonit" toggle>
-        <form class="form" name="form4" ng-submit="commentonit()" novalidate another>
-
-          <div>
-            <label>Comment</label>
-
-            <textarea class="form-control" name="comments" ng-model="comment.content" required></textarea> 
-          </div>
-          <br>
-          <button type="submit" ng-click="toggle()">Submit comment</button>
-        </form>
-      </div>
-      <div>
-        <table>
+<div class="jumbotronmain" ng-init="loadpost()">
+  <div class="jumbotroninnerview">
+    <table>
+      <tr>
+        <td><h3 id="colorblueview">{{post.posttitle}}</h3></td>
+      </tr>
+    <table>
+    <table>
+      <tr>
+        <td><p id="colorbackcontent">{{post.content}}</p></td>
+      </tr>
+    </table>
+    <br>
+    <div id="wrapperdiv">
+      <div id="postinfo">
+        <table style="margin-left:20px">
           <tr>
-            <td><h3 id="colorblue">Comments</h3></td>
+            <div id="listit"><p>Posted by: {{post.namey}}</p></civ>
           </tr>
-        <table>
-        <div class="jumbotroncomment" jumbo>
+          <tr>
+            <div id="listit"><p>Posted on: {{post.date}}</p></div>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <br>
+    <div id="goleftnow">
+      <button ng-hide="usermatchespost()" ng-click="deleteit(post)">Delete post</button>
+      <button ng-hide="usermatchespost()" ng-click="editit(post)">Edit post</button>
+      <button ng-hide="showcommentsave" id="submitcomment" ng-click="toggle()" change>Comment</button>
+    </div>
+    <br>
+    <br>
+    <div ng-hide="hideit" class="commentonit" toggle>
+      <form class="form" name="please" ng-submit="commentonit(post)" novalidate another>
+
+        <div>
+          <label>Comment</label>
+
+          <textarea class="form-control" name="comments" ng-model="comment.content" required></textarea> 
+        </div>
+        <br>
+        <button type="submit" ng-click="toggle()">Submit comment</button>
+      </form>
+    </div>
+    <div>
+      <table>
+        <tr>
+          <td><h3 id="colorblue">Comments</h3></td>
+        </tr>
+      <table>
+      <div class="jumbotroncomment">
         <div ng-model="commentstring" class="nocomments">{{commentstring.empty}}</div>
           <div ng-repeat="comment in comments track by $index">
+          <div>
             <div id="postinfocomment">
-              <h5 id="commenttitle">Posted by: {{comment.username}}</h4>
+              <h5 id="commenttitle">Posted by: {{comment.namey}}</h4>
               <h5 id="commenttitle">Posted on: {{comment.date}}</h5>
             </div>
+          <div>
             <p id="colorbackcontentcomment">{{comment.content}}</p>
             <div edit>
               <textarea ng-hide="comment.checkedit" id='editcommentplace' class="form-control" name="comments" ng-model="comment.content" required toggle2></textarea>
             </div>
-            <div>
-              <button ng-click="deletecomment(comment)">Delete comment</button>
+          </div>
+          <div>
+            <button style="display:inline-block; margin-right:1px;" ng-hide="comment.usermatchescomment" ng-click="deletecomment(comment)">Delete comment</button>
+            <div style="display:inline-block; margin-right:1px;" ng-hide="comment.usermatchescomment">
               <button ng-show="comment.showeditbutton" ng-click="commentedit(comment)">Edit comment</button>
+            </div>
+            <div style="display:inline-block; margin-right:1px;" ng-hide="comment.usermatchescomment">
               <button ng-hide="comment.checkedit" ng-click="commentsave(comment)">Save comment</button>
             </div>
           </div>

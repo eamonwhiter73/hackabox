@@ -3,9 +3,8 @@
 angular.module('hackaboxApp')
   .controller('ForumCtrl', function ($http, $scope, $window, $location) {
     $scope.user = {};
-    $scope.posts = {};
-    //$scope.editinfo = {};
-    //$scope.errors = {};
+    $scope.posts = null;
+
     $http.get('/api/users/me').success(function (user) {$scope.user = user;});
 
     $scope.viewpost = function(data) {

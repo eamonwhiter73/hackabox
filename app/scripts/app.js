@@ -31,7 +31,7 @@ angular.module('hackaboxApp', [
       })
       .when('/createpost', {
         templateUrl: 'partials/createpost',
-        controller: 'PostCtrl',
+        controller: 'CreatePostCtrl',
         authenticate: true
       })
       .when('/postedit/:id', {

@@ -37,11 +37,4 @@ angular.module('hackaboxApp')
         elem.html('');
       });
     };
-  })
-  .directive('jumbo', function() {
-    return function(scope, elem, attrs) {
-      scope.$on('event:jumbo', function() {
-        elem.html('<div class="nocomments">No comments</div>');
-      });
-    };
   });
