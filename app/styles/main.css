@@ -100,10 +100,14 @@ body {
 }
 
 #colorbackcontentcomment {
+  overflow-x: auto; /* Use horizontal scroller if needed */
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+  white-space : normal;
   color: #000000;
   text-align: left;
   padding-top: 10px;
-  padding-right: 10px;
 }
 
 #colorbackcontent {
@@ -111,6 +115,7 @@ body {
   text-align: left;
   padding-top: 10px;
   margin-left: 20px;
+  margin-right: 20px;
 }
 
 td {
@@ -147,7 +152,6 @@ td {
 
 #postinfo {
   position: relative;
-  padding-bottom: 8px;
   color: inherit;
   background-color: #BD8484;
   border-radius: 2px;
@@ -160,7 +164,8 @@ td {
 }
 
 #postinfocomment {
-  padding-bottom: 3px;
+  position: relative;
+  left: -1px;
   color: inherit;
   background-color: #BD8484;
   border-radius: 2px;

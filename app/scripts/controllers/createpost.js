@@ -22,13 +22,15 @@ angular.module('hackaboxApp')
 
     $scope.postit = function(data) {
       var holder = $scope.user.email;
+      var x = new Date().toString();
+      var s = x.substring(0, x.indexOf('G'));
       
       var sendinfo = {
         _id: makeidforpost(),
         posttitle: $scope.post.posttitle,
         content: $scope.post.content,
         namey: holder,
-        date: new Date().toString(),
+        date: s,
         comments: $scope.post.comments
       };
 

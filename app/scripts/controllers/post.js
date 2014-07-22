@@ -93,7 +93,10 @@ angular.module('hackaboxApp')
       if(Auth.isLoggedIn()) {
         var holder = JSON.parse($scope.usethisemail);
         var number = makeid();
-        $scope.comment = {showeditbutton: true, checkedit: true, namey: holder, date: new Date().toString(), content: $scope.comment.content, id: number};
+        var x = new Date().toString();
+        var s = x.substring(0, x.indexOf('G'));
+
+        $scope.comment = {showeditbutton: true, checkedit: true, namey: holder, date: s, content: $scope.comment.content, id: number};
         $scope.commentstring.empty = '';
         $scope.post.comments.push($scope.comment);
         $scope.comments = $scope.post.comments;
@@ -108,9 +111,14 @@ angular.module('hackaboxApp')
     };
 
     $scope.toggle = function() {
-      $scope.hideit = false;
-      $scope.$broadcast('event:toggle');
-      $scope.$broadcast('event:change');
+      if(!Auth.isLoggedIn()) {
+        $window.alert('You need to log in.');
+      }
+      else {
+        $scope.hideit = false;
+        $scope.$broadcast('event:toggle');
+        $scope.$broadcast('event:change');
+      }
     };
 
     $scope.toggles = function() {
