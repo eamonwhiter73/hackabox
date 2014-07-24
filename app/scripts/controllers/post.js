@@ -11,7 +11,7 @@ angular.module('hackaboxApp')
     $scope.hideit2 = true;
     $scope.commentstring = {empty: null};
     $scope.usethisemail = null;
-    $scope.showcommentsave;
+    $scope.showcommentsave = null;
 
     $scope.usermatchespost = function() {
       if($scope.post.namey === JSON.parse($scope.usethisemail)) {
@@ -20,14 +20,14 @@ angular.module('hackaboxApp')
       else {
         return true;
       }
-    }
+    };
 
     $scope.loadpost = function() {
       if(Auth.isLoggedIn()) {
         $http.get('/api/users/memail').success(function (data) {
           $scope.usethisemail = data;
         });
-      };
+      }
 
       $http.get('/api/posts/'+$routeParams.id).success(function (data) {
         if(data.comments[0] === undefined) {
@@ -121,6 +121,21 @@ angular.module('hackaboxApp')
       }
     };
 
+    $scope.toggley = function() {
+      $scope.hideit = true;
+      $scope.$broadcast('event:fadein');
+      $scope.$broadcast('event:change');
+    };
+
+    $scope.fadein = function() {
+      if(!Auth.isLoggedIn()) {
+        $window.alert('You need to log in.');
+      }
+      else {
+        $scope.$broadcast('event:fadein');
+      }
+    };
+
     $scope.toggles = function() {
       $scope.hideit2 = false;
       $scope.$broadcast('event:toggles');
@@ -207,14 +222,19 @@ angular.module('hackaboxApp')
     $http.get('/api/users/me').success(function (data) {$scope.user = data;});
 
     $scope.saveedit = function() {
+      if($scope.post.posttitle.length > 40) {
+        $window.alert('The title can only be 40 characters.');
+      }
+      else {
       // Now call update passing in the ID first then the object you are updating
-      $http({url: '/api/posts/'+$routeParams.id, method: 'PUT', data: $scope.post}).
-        success(function(data, status, headers, config) {
-          $location.path('/postview/'+$routeParams.id);
-        }).
-        error(function(data, status, headers, config) {
-          //
-        });
+        $http({url: '/api/posts/'+$routeParams.id, method: 'PUT', data: $scope.post}).
+          success(function(data, status, headers, config) {
+            $location.path('/postview/'+$routeParams.id);
+          }).
+          error(function(data, status, headers, config) {
+            //
+          });
+      }
     };
 
     $scope.loadinfo = function() {

@@ -1,17 +1,9 @@
 'use strict';
 
-angular.module('hackaboxApp')
-
   /**
    * Removes server error when user updates input
    */
-  .directive('toggle', function() {
-    return function(scope, elem, attrs) {
-      scope.$on('event:toggle', function() {
-        elem.slideToggle();
-      });
-    };
-  })
+angular.module('hackaboxApp')
   .directive('toggles', function() {
     return function(scope, elem, attrs) {
       scope.$on('event:toggles', function() {

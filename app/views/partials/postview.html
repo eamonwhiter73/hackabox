@@ -17,7 +17,7 @@
       <div id="postinfo">
         <table style="margin-left:20px">
           <tr>
-            <div id="listit"><p>Posted by: {{post.namey}}</p></civ>
+            <div id="listit"><p>Posted by: {{post.namey}}</p></div>
           </tr>
           <tr>
             <div id="listit"><p>Posted on: {{post.date}}</p></div>
@@ -34,7 +34,7 @@
     <br>
     <br>
     <div ng-hide="hideit" class="commentonit" toggle>
-      <form class="form" name="please" ng-submit="commentonit(post)" novalidate another>
+      <form class="form" name="please" ng-submit="commentonit(post)" novalidate>
 
         <div>
           <label>Comment</label>
@@ -42,7 +42,7 @@
           <textarea class="form-control" name="comments" ng-model="comment.content" required></textarea> 
         </div>
         <br>
-        <button type="submit" ng-click="toggle()">Submit comment</button>
+        <button type="submit" ng-click="toggley()">Submit comment</button>
       </form>
     </div>
     <div>
@@ -51,7 +51,7 @@
           <td><h3 id="colorblue">Comments</h3></td>
         </tr>
       <table>
-      <div class="jumbotroncomment">
+      <div class="jumbotroncomment" fadein>
         <div ng-model="commentstring" class="nocomments">{{commentstring.empty}}</div>
           <div ng-repeat="comment in comments track by $index">
           <div>

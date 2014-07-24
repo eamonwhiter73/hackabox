@@ -10,7 +10,8 @@
     "angular-resource": "*",
     "angular-cookies": "*",
     "angular-sanitize": "*",
-    "angular-route": "*"
+    "angular-route": "*",
+    "angular-animate": "*"
   },
   "devDependencies": {
     "angular-mocks": "*",
